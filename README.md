@@ -1,5 +1,5 @@
 # TwitterELStreamer
-Streams twitter messages into ElasticSearch
+Streams Twitter messages into ElasticSearch
 
 Run like this:
 ```
@@ -14,7 +14,10 @@ oauth.consumerSecret=******************************************
 oauth.accessToken=**************************************************
 oauth.accessTokenSecret=******************************************
 ```
-es.properties must also be in the current directory with these properties:
-
+es.properties can also be in the current directory with these properties:
 ```
+cluster.name=elasticsearch
+host=localhost
+port=9300
 ```
+If file is not present then the above values are used as default.
