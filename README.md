@@ -16,8 +16,6 @@ oauth.accessTokenSecret=******************************************
 ```
 es.properties can also be in the current directory with these properties:
 ```
-cluster.name=elasticsearch
-host=localhost
-port=9300
+url=http://localhost:9200
 ```
 If file is not present then the above values are used as default.
