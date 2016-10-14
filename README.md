@@ -16,6 +16,8 @@ oauth.accessTokenSecret=******************************************
 ```
 es.properties can also be in the current directory with these properties:
 ```
-url=http://localhost:9200
+host=localhost
+port=9200
+pipeline=sentiment
 ```
-If file is not present then the above values are used as default.
+If file is not present then the above values are used as default, except pipeline which is not defined.
