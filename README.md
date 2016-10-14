@@ -3,7 +3,7 @@ Streams Twitter messages into ElasticSearch
 
 Run like this:
 ```
-java -jar twitter-el-streamer-1.0-jar-with-dependencies.jar  <twitter-topic> <es-index-name> <es-index-type>
+java -jar twitter-el-streamer-1.0-jar-with-dependencies.jar  <twitter-topic> <es-index-name> <es-document-type>
 ```
 
 twitter4j.properties must be in the current directory with these properties:
