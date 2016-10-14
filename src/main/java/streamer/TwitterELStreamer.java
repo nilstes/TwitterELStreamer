@@ -16,7 +16,7 @@ public class TwitterELStreamer {
                 new TweetListener(args[0]) {
                     @Override
                     public void onStatus(Status status) {
-                        writer.addStatus(status.getCreatedAt(), "@" + status.getUser().getScreenName(), status.getText());
+                        writer.addStatus(new Message(status.getText(), status.getCreatedAt(), "@" + status.getUser().getScreenName()));
                     }           
                 };
             } catch(Exception e) {
