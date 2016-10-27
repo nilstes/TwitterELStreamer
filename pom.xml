@@ -14,9 +14,14 @@
     
     <dependencies>
         <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>rest</artifactId>
-            <version>5.0.0-rc1</version>
+            <version>5.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.twitter4j</groupId>
@@ -28,12 +33,6 @@
             <artifactId>twitter4j-stream</artifactId>
             <version>4.0.4</version>
         </dependency>
-        <dependency>
-            <groupId>de.otto</groupId>
-            <artifactId>flummi</artifactId>
-            <version>0.2.0</version>
-        </dependency>
-
     </dependencies>
     
     <build>
