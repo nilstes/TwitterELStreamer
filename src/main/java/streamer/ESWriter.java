@@ -68,14 +68,15 @@ public class ESWriter {
     
     public void addStatus(Message message) {
         try {
-            HttpEntity entity = new NStringEntity(
-                gson.toJson(message), ContentType.APPLICATION_JSON);
+            String json = gson.toJson(message);
+            log.log(Level.INFO, json);
+            HttpEntity entity = new NStringEntity(gson.toJson(message), ContentType.APPLICATION_JSON);
             client.performRequest(
                 "POST",
                 "/" + indexName + "/" + typeName,
                 indexParam,
                 entity);
-            log.log(Level.INFO, "Added message to ElasticSearch: user={0}, message={1}", new Object[]{message.getUser(), message.getMessage()});
+            log.log(Level.INFO, "Added message to ElasticSearch");
         } catch(Exception e) {
             log.log(Level.INFO, "Failed to add message to ElasticSearch: user={0}, message={1}, error={2}", new Object[]{message.getUser(), message.getMessage(), e.getMessage()});
         }

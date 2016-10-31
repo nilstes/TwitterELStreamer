@@ -1,5 +1,6 @@
 package streamer;
 
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import twitter4j.FilterQuery;
@@ -18,8 +19,8 @@ public abstract class TweetListener {
 
     private static final Logger log = Logger.getLogger(TweetListener.class.getName());
 
-    public TweetListener(String topic) {
-        log.log(Level.INFO, "TweetListener: starting to listen to topic {0}", topic);
+    public TweetListener(String[] topics) {
+        log.log(Level.INFO, "TweetListener: starting to listen to topics {0}", Arrays.asList(topics));
         
         TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
 
@@ -52,7 +53,7 @@ public abstract class TweetListener {
         twitterStream.addListener(listener);
 
         FilterQuery tweetFilterQuery = new FilterQuery(); // See 
-        tweetFilterQuery.track(new String[]{topic});
+        tweetFilterQuery.track(topics);
         tweetFilterQuery.language(new String[] {"en"});
         twitterStream.filter(tweetFilterQuery);
         
