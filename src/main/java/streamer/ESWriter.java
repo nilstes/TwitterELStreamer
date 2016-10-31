@@ -1,6 +1,7 @@
 package streamer;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,6 +26,9 @@ public class ESWriter {
 
     private static final Logger log = Logger.getLogger(ESWriter.class.getName());
 
+    private Gson gson = new GsonBuilder()
+        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZZ").create();
+    
     private String indexName;
     private String typeName;
     private Map<String,String> indexParam;
@@ -65,7 +69,7 @@ public class ESWriter {
     public void addStatus(Message message) {
         try {
             HttpEntity entity = new NStringEntity(
-                new Gson().toJson(message), ContentType.APPLICATION_JSON);
+                gson.toJson(message), ContentType.APPLICATION_JSON);
             client.performRequest(
                 "POST",
                 "/" + indexName + "/" + typeName,
