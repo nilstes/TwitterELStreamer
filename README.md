@@ -3,7 +3,7 @@ Streams Twitter messages into ElasticSearch
 
 Run like this:
 ```
-java -jar twitter-el-streamer-1.0-jar-with-dependencies.jar  <twitter-topic> <es-index-name> <es-index-type>
+java -jar twitter-el-streamer-1.0-jar-with-dependencies.jar  <twitter-topic> <es-index-name> <es-document-type>
 ```
 
 twitter4j.properties must be in the current directory with these properties:
@@ -16,8 +16,8 @@ oauth.accessTokenSecret=******************************************
 ```
 es.properties can also be in the current directory with these properties:
 ```
-cluster.name=elasticsearch
 host=localhost
-port=9300
+port=9200
+pipeline=sentiment
 ```
-If file is not present then the above values are used as default.
+If file is not present then the above values are used as default, except pipeline which is not defined.
